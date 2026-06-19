@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彩经网 · 信息介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9d8 0%, #f7d4b5 50%, #f0c7a0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            max-width: 860px;
+            width: 100%;
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 20px 40px -12px rgba(140, 80, 30, 0.25), 0 8px 20px rgba(0,0,0,0.04);
+            padding: 2.8rem 2.5rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hero {
+            margin-bottom: 2.2rem;
+        }
+
+        .hero .greeting {
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            color: #a96b3c;
+            background: #f7ede4;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-weight: 450;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 560;
+            color: #3f2c1b;
+            line-height: 1.25;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .lead {
+            font-size: 1.1rem;
+            color: #594531;
+            line-height: 1.6;
+            max-width: 70ch;
+        }
+
+        .section-block {
+            margin: 2.2rem 0;
+        }
+
+        .section-block h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #4d3522;
+            border-left: 5px solid #daa77b;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-block p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #2f241b;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.8rem;
+            margin: 1.6rem 0 1.2rem;
+            list-style: none;
+        }
+
+        .feature-list li {
+            background: #faf3ec;
+            padding: 0.3rem 0.8rem 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            color: #3f2c1b;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: "✦";
+            color: #c4865a;
+            font-weight: 400;
+            position: absolute;
+            left: 0.4rem;
+            top: 0.25rem;
+            font-size: 0.85rem;
+        }
+
+        .link-sentence {
+            background: #f6ede6;
+            padding: 1.1rem 1.5rem;
+            border-radius: 30px;
+            margin: 1.8rem 0 0.8rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #2f241b;
+        }
+
+        .link-sentence a {
+            color: #9b6d49;
+            text-decoration: none;
+            font-weight: 520;
+            background: #ffffffd9;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            border: 1px solid #e1cfbe;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .link-sentence a:hover {
+            background: #fff5ed;
+            border-color: #c9a586;
+            color: #7c5739;
+            box-shadow: 0 2px 8px rgba(170, 110, 55, 0.1);
+        }
+
+        .faq-summary {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #ddcbbc;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.8rem;
+            background: #faf4ef;
+            border-radius: 20px;
+            padding: 0.5rem 1.2rem;
+            transition: background 0.1s;
+        }
+
+        .faq-summary details[open] {
+            background: #f3e8de;
+        }
+
+        .faq-summary summary {
+            font-weight: 480;
+            color: #4a3626;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            outline: none;
+            font-size: 0.98rem;
+        }
+
+        .faq-summary summary::-webkit-details-marker {
+            color: #b7875f;
+        }
+
+        .faq-summary details p {
+            margin: 0.5rem 0 0.8rem;
+            font-size: 0.92rem;
+            color: #3b2e21;
+            line-height: 1.6;
+        }
+
+        .closing {
+            margin: 2rem 0 0.5rem;
+            font-size: 0.95rem;
+            color: #5a4535;
+            text-align: right;
+            border-top: 1px solid #ece1d7;
+            padding-top: 1.6rem;
+            font-style: normal;
+        }
+
+        .closing span {
+            background: #f1e4da;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+        }
+
+        @media (max-width: 650px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 32px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .feature-list {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .feature-list li {
+                padding-left: 1.6rem;
+            }
+            .link-sentence {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.6rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="hero">
+            <div class="greeting">关于这个站点 · 一份说明</div>
+            <h1>在信息繁杂的角落，<br>有一处安静的整理</h1>
+            <p class="lead">它不是门户，也不是广场，更像一个经过筛选的资料架——存放着与数字、趋势、逻辑相关的内容，供人按需翻阅。</p>
+        </div>
+
+        <div class="section-block">
+            <h2>站点背景与可信角度</h2>
+            <p>
+                这个网站从建立之初就保持着一个朴素的定位：把分散的、需要反复查找的信息，用统一的条目组织起来。无论是数据排列、周期观察，还是基础概念归纳，<strong>彩经网</strong>的整理方式倾向于平实、可对照。所有公开内容均基于可查证的来源与通用分析方法，不包装、不渲染，力求让访问者自己判断。
+            </p>
+            <p>
+                在领域内，它不算张扬，但持续更新。十年以上的运营时长使其沉淀了一批结构稳定的专题页，尤其在频率统计与区间分析方面，积累了较多历史对照表。站内没有即时弹窗、不设强制注册，浏览体验接近一本可以随时翻到指定章节的参考书。
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2>内容特点一览</h2>
+            <ul class="feature-list">
+                <li>分类索引清晰，按周期、类型、跨度区分</li>
+                <li>数据表格均标注统计区间与样本量</li>
+                <li>无用户投稿区，所有内容由编辑整理</li>
+                <li>每篇说明页附有方法简述，便于理解逻辑</li>
+                <li>不追踪个人行为，无个性化推送</li>
+                <li>移动端布局适配，查看表格不需缩放</li>
+            </ul>
+            <p style="font-size:0.95rem; color:#5b4839; margin-top:0.2rem;">
+                这些特点不是宣传，而是长期维护中自然形成的习惯。如果你已经熟悉这个领域，或许会发现它的整理方式恰好能节省一些检索时间。
+            </p>
+        </div>
+
+        <div class="link-sentence">
+            ✦ 如果你愿意进一步了解它的整理逻辑与内容框架，可以直接浏览 
+            <a href="https://website-cjcp.com">彩经网</a> 
+            —— 那里没有任何引导弹窗，只有按分类排列的页面与数据对照表。
+        </div>
+
+        <div class="faq-summary">
+            <details>
+                <summary>这个网站适合哪些人？</summary>
+                <p>主要面向对数字规律、统计分布、区间特征有基础兴趣的浏览者，也适合需要查阅历史数据对照表的人。内容偏重条理化整理，不包含主观建议或操作指导。</p>
+            </details>
+            <details>
+                <summary>内容更新频繁吗？</summary>
+                <p>保持周期性更新，重点栏目每月至少补充一次最新统计区间。遇到年度或季度节点，会同步更新对照总表。更新日志在站点底部可见。</p>
+            </details>
+            <details>
+                <summary>是否需要注册或付费？</summary>
+                <p>完全免费，且无需注册。所有页面均可直接访问，不设会员区，不收集邮箱或手机号。部分图表以静态图片形式提供，均可查看。</p>
+            </details>
+        </div>
+
+        <div class="closing">
+            <span>一份平实的索引，胜过夸张的宣言。</span>
+        </div>
+    </div>
+</body>
+</html>

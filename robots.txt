@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rodrigneltpery.github.io/website-cjcp-com/sitemap.xml
